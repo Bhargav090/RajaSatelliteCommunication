@@ -1,38 +1,399 @@
-.App {
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Navbar CSS----------------------- */
+.navbar {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 2%;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navitem {
+    display: flex;
+    gap: 120px;
+    margin-right: 5%;
+}
+
+.navitem a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem; 
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s; 
+}
+
+.navitem a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #007bff; 
+    transition: width 0.3s ease, background-color 0.3s ease;}
+
+.navitem a:hover::after {
+    width: 100%; 
+    left: 0;
+    background: #0056b3; 
+}
+
+.navitem a:hover {
+    color: #0056b3;
+}
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    align-items: end;
+    
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        height: 8vh;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .navitem {
+        display: none; 
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+        gap: 10px;
+        background-color: #f8f9fa;
+        padding: 10px 0;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navitem.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+       
+    }
+
+    .navitem a {
+        font-size: 16px; 
+    }
+
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navitem a {
+        font-size: 14px;
+    }
+}
+
+/* Start--------------------------------- */
+.start {
+    height: 70vh;
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(to right, rgba(9, 66, 128, 0.8), rgba(147, 149, 151, 0.8)), url('./assets/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: -1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .txt-container {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .txt {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0 0 20px 0; /* Margin bottom to separate from subheading */
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .subtxt {
+    color: #f8f9fa;
+    font-size: 1.2em;
+    font-weight: normal;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .start {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .txt {
+      font-size: 2em;
+    }
+  
+    .subtxt {
+      font-size: 0.8em;
+    }
+  }
+  
+
+  /* About--------------------------- */
+  .content {
+    display: flex;
+    margin: 20px;
+    margin: 2.5%;
+    margin-top: 5%;
+  }
+  
+  .left {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .left h2 {
+    font-size: 2em;
+    color: #343a40;
+  }
+  
+  .right {
+    flex: 2;
+  }
+  
+  .channel-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .channel-logo {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .more-info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .more-info p {
+    font-size: 1.2em;
+    color: #343a40;
+  }
+  
+  .view-all-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #007bff;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .view-all-link:hover {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  .suba{
+    line-height: 2rem;
+    margin-top: 4%;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+      }
+      .right{
+        margin: 1%;
+        margin-top: 10%;
+        justify-content: center;
+        align-items: center;
+      }
+  }
+
+  /* place----------------------------------- */
+  .place{
+    margin: 2.5%;
+  }
+  .placeh1{
+    font-size: 2em;
+    color: #343a40;
+  }
+  h1{
+    font-size: 2em;
+    color: #343a40;
+  }
+  @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Place Component Styles */
+.place {
+  margin: 2.5%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.placeh1 {
+  font-size: 2em;
+  color: #343a40;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.slide-image {
+  width: 100%;
+  max-height: 500px; /* Adjust as needed */
+  object-fit: cover;
+}
+
+/* Adjust carousel arrows */
+.slick-prev:before,
+.slick-next:before {
+  color: #343a40;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .placeh1 {
+    font-size: 1.5em;
+  }
+
+  .slide-image {
+    max-height: 300px; /* Adjust as needed */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+ /* Contact.css */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.contact {
+    margin: 2.5%;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .contm {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
   }
-}
+  
+  .innerone {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cont2 {
+    color: #343a40;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    justify-content: center;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .pic {
+    max-height: 300px; /* Set max height to control the image size */
+    width: 50%; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cont3 {
+    text-align: center; /* Center text in the bottom section */
+  }
+  .cont1{
+    margin-top: 10%;
+  }
+  @media (max-width: 768px) {
+    .contm {
+      flex-direction: column;
+    }
+  
+    .cont1 {
+      width: 90%;
+    }
+  
+    .pic {
+      max-height: 250px; /* Adjust max-height for smaller screens */
+      width: 60%; /* Adjust width for smaller screens */
+      margin-top: 20px;
+    }
+    .innerone{
+        width: 100%;
+    }
+    .cont1{
+        margin-top: 1%;
+      }
+  }
+  
